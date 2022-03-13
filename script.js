@@ -1,40 +1,53 @@
-function computerPlay(){
-    let compInt = Math.floor(Math.random() *3 + 1);
-    if(compInt === 1) {
-        return ("Rock");
-    }else if(compInt === 2) {
-        return ("Paper")
-    }else {
-        return ("Scissors");
-    }
+const gameChoice = [ "Rock", "Paper", "Scissors"];
+function computerPlay()  {
+    return gameChoice [Math.floor(Math.random() * gameChoice.length)];
 }
+const playerSelection = prompt("Rock Paper Scissors. Best out of 5!");
 
+
+let playerScore = 0
+let computerScore = 0
 function playRound(playerSelection, computerSelection) {
-    if(playerSelection.toLowerCase() === "rock" && computerSelection === "Scissors") {
-        return ("You win! Rock beats Scissors.");
-    }else if(playerSelection.toLowerCase() === "paper" && computerSelection === "Rock") {
-        return ("You win! Paper beats Rock.");
-    }else if(playerSelection.toLowerCase() === "Scissors" && computerSelection === "Paper") {
-        return ("You win! Scissors beats Paper.");
+    if((playerSelection.toLowerCase() === "rock" && computerSelection === "Scissors") |
+        (playerSelection.toLowerCase() === "paper" && computerSelection === "Rock") |
+        (playerSelection.toLowerCase() === "Scissors" && computerSelection === "Paper")){
+        ++playerScore
+        alert("You win! " + playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase() + " beats " + computerSelection + ".");
+        //return playerScore;
 
-    }else if(playerSelection.toLowerCase() === "rock" && computerSelection === "Paper") {
-        return ("You lose! Paper beats Rock.");
-    }else if(playerSelection.toLowerCase() === "paper" && computerSelection === "Scissors") {
-        return ("You lose!Scissors beats Paper.");
-    }else if(playerSelection.toLowerCase() === "scissors" && computerSelection === "Rock") {
-        return ("You lose! Rock beats Scissors.");
-    }
-
-    else if(playerSelection.toLowerCase() === "rock" && computerSelection === "Rock") {
-        return ("Double Rock. It's a tie!");
-    }else if(playerSelection.toLowerCase() === "paper" && computerSelection === "Paper") {
-        return ("Double Paper. It's a tie!");
-    }else if(playerSelection.toLowerCase() === "scissors" && computerSelection === "Scissors") {
-        return ("Double Scissors. It's a tie!");
+    }else if((playerSelection.toLowerCase() === "rock" && computerSelection === "Paper") |
+            (playerSelection.toLowerCase() === "paper" && computerSelection === "Scissors") |
+            (playerSelection.toLowerCase() === "scissors" && computerSelection === "Rock")) {
+            ++computerScore;
+        alert("You lose! " + computerSelection  + " beats " + playerSelection.toLowerCase() + ".");
+        //return computerScore;
+    
+    }else if((playerSelection.toLowerCase() === "rock" && computerSelection === "Rock") |
+            (playerSelection.toLowerCase() === "paper" && computerSelection === "Paper") |         
+            (playerSelection.toLowerCase() === "scissors" && computerSelection === "Scissors")) {
+            computerScore += 1;
+            playerScore += 1;
+        alert("Double " + playerSelection.toLowerCase() + ". It's a tie!"); 
+        //return computerScore;
     }  
 }
-const computerSelection = computerPlay();
-const playerSelection = prompt("Rock, Paper, Scisssors?");
+
+//const computerSelection = computerPlay();
+//const playerSelection = prompt("rock paper scissors");
+//console.log(playRound(playerSelection, computerSelection));
 
 
-console.log(playRound(playerSelection, computerSelection));
+function game () {
+for (let i = 0; i < 5; i++) {
+    playRound(playerSelection, computerPlay());
+}if(playerScore > computerScore) {  
+    alert("Player: " + playerScore + " Computer: " + computerScore + " You Win!");
+    }else if(playerScore < computerScore) {
+    alert("Player: " + playerScore + " Computer: " + computerScore + " You lost!");
+    }else {
+    alert("Player: " + playerScore + " Computer: " + computerScore + " Draw.");
+    }
+}
+
+console.log(game());
+console.log (computerScore, playerScore);
