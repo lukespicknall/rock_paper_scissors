@@ -25,11 +25,13 @@ function playRound(playerSelection, computerSelection) {
     }else if((playerSelection.toLowerCase() === "rock" && computerSelection === "Rock") |
             (playerSelection.toLowerCase() === "paper" && computerSelection === "Paper") |         
             (playerSelection.toLowerCase() === "scissors" && computerSelection === "Scissors")) {
-            computerScore += 1;
-            playerScore += 1;
+            //computerScore += 1;
+            //playerScore += 1;
         alert("Double " + playerSelection.toLowerCase() + ". It's a tie!"); 
         //return computerScore;
-    }  
+    }else {
+        alert("you didnt actually do it . . . so now this will be boring. thanks.")
+    }
 }
 
 //const computerSelection = computerPlay();
@@ -48,6 +50,7 @@ for (let i = 0; i < 5; i++) {
     alert("Player: " + playerScore + " Computer: " + computerScore + " Draw.");
     }
 }
+
 
 console.log(game());
 console.log (computerScore, playerScore);
