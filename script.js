@@ -65,12 +65,7 @@ buttons.forEach(button => {
 //btnS.addEventListener('click', () => playRound("scissors", computerSelection));
 
 
-
-
-
-
-
-
+//  ** DEAD ** //
 //const playerSelection = prompt("rock paper scissors");
 //console.log(playRound(playerSelection, computerSelection));
 
