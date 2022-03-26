@@ -21,18 +21,18 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection === "Scissors" && computerSelection === "Paper")){
         ++playerScore
         result.textContent = "You win! " + playerSelection + " beats " + computerSelection.toLowerCase() + ".";
-        score.textContent = "You : " + playerScore + " | Computer: " + computerScore;
+        score.textContent = "Score = You : " + playerScore + " | Computer: " + computerScore;
     }else if((playerSelection === "Rock" && computerSelection === "Paper") |
         (playerSelection === "Paper" && computerSelection === "Scissors") |
         (playerSelection === "Scissors" && computerSelection === "Rock")) {
         ++computerScore;
         result.textContent = "You lose! " + computerSelection  + " beats " + playerSelection.toLowerCase() + ".";
-        score.textContent = "You : " + playerScore + " | Computer: " + computerScore;
+        score.textContent = "Score = You : " + playerScore + " | Computer: " + computerScore;
     }else if((playerSelection === "Rock" && computerSelection === "Rock") |
         (playerSelection === "Paper" && computerSelection === "Paper") |         
         (playerSelection === "Scissors" && computerSelection === "Scissors")) {
         result.textContent = "Double " + playerSelection.toLowerCase() + ". It's a tie!"; 
-        score.textContent = "You : " + playerScore + " | Computer: " + computerScore;
+        score.textContent = "Score = You : " + playerScore + " | Computer: " + computerScore;
     }
     choice.textContent = "You Threw: " + playerSelection + " | Computer Threw: " + computerSelection;
 }
